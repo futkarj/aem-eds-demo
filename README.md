@@ -1,7 +1,7 @@
 # AEM Edge Delivery Services — Doc-to-Site Demo
 
 A presales demo of Adobe Edge Delivery Services: document authoring, a CDN-first architecture, and custom blocks.
-Write-up and talk track: YOUR-SUPER-SITE-URL/blog/eds-demo
+Write-up and talk track: https://rohit-jain-portfolio.super.site/blog/eds-demo
 
 **Live:** https://main--aem-eds-demo--futkarj.aem.live
 
