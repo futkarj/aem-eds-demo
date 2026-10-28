@@ -25,6 +25,10 @@ Authors add a table named **Rate Table** with a link to a published sheet, and o
 
 The sheet's columns become the table header. When rates change, marketing edits the sheet and publishes it, with no code deploy needed.
 
+## Embed mode
+Add `?embed` to any page URL to show only its content, without the site header and footer. Use it to embed a demo in an iframe, for example on the portfolio blog:
+`https://main--aem-eds-demo--futkarj.aem.live/savings?embed`
+
 ## Local development
 ```bash
 npm i
