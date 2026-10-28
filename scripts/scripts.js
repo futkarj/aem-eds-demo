@@ -38,6 +38,12 @@ if (window.trustedTypes && window.trustedTypes.createPolicy) {
 }
 
 /**
+ * Embed mode: `?embed` in the URL shows just the page content, without header and footer,
+ * for embedding a demo page in an iframe (e.g. on the portfolio blog).
+ */
+const isEmbed = new URLSearchParams(window.location.search).has('embed');
+
+/**
  * load fonts.css and set a session storage flag
  */
 async function loadFonts() {
@@ -161,6 +167,7 @@ export function decorateMain(main) {
  */
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
+  if (isEmbed) document.body.classList.add('embed');
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
   if (main) {
@@ -184,7 +191,7 @@ async function loadEager(doc) {
  * @param {Element} doc The container element
  */
 async function loadLazy(doc) {
-  loadHeader(doc.querySelector('body > header'));
+  if (!isEmbed) loadHeader(doc.querySelector('body > header'));
 
   const main = doc.querySelector('main');
   await loadSections(main);
@@ -193,7 +200,7 @@ async function loadLazy(doc) {
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
 
-  loadFooter(doc.querySelector('body > footer'));
+  if (!isEmbed) loadFooter(doc.querySelector('body > footer'));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();

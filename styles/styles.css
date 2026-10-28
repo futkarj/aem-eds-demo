@@ -323,3 +323,14 @@ main .section.highlight {
   margin: 0;
   padding: 40px 0;
 }
+
+/* embed mode (?embed): content only, compact top, for iframes */
+body.embed header,
+body.embed footer {
+  display: none;
+}
+
+body.embed h1 {
+  margin-top: 0.4em;
+  font-size: var(--heading-font-size-l);
+}
